@@ -5,6 +5,7 @@ const LoginForm = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
          e.preventDefault();
@@ -13,7 +14,7 @@ const LoginForm = () => {
 
          try {
            // username, password, => chatengine -> give msgs
-           await axios.get('https://api.chatengie.io/chats', { headers: authObject});
+           await axios.get('https://api.chatengine.io/chats', { headers: authObject});
         
            // works out -> logged in
 
@@ -24,7 +25,7 @@ const LoginForm = () => {
             window.location.reload();
         }  catch (error) {
            // error -> try with new username...
-
+           setError('Incorrect credentials')
          }
     };
 
@@ -33,13 +34,15 @@ const LoginForm = () => {
             <div className="form">
                <h1 className="title">Chat App</h1>
                <form onSubmit={handleSubmit}>
-                 <input type="text" 
+                 <input 
+                     type="text" 
                      value={username} onChange={(e) => setUsername(e.target.value)} 
                      className="input"
                      placeholder="Username"
                      required
                   />
-                  <input type="text" 
+                  <input 
+                     type="password" 
                      value={password} onChange={(e) => setPassword(e.target.value)} 
                      className="input"
                      placeholder="Password"
@@ -51,6 +54,7 @@ const LoginForm = () => {
                      </button>
                   </div>
                </form>
+               <h1 className="error">{error}</h1>
             </div>
         </div>
     )
