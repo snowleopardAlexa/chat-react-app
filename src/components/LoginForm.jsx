@@ -54,6 +54,10 @@ const LoginForm = () => {
                      </button>
                   </div>
                </form>
+               <div className="credentials">
+                   <p>username: Alexa, Captain</p>
+                   <p>password: Valencia19</p>
+               </div>
                <h1 className="error">{error}</h1>
             </div>
         </div>
