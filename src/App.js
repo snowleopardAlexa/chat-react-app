@@ -15,6 +15,7 @@ function App() {
         projectID="2d338583-f0c7-4459-bf9f-c2e194b7e410"
         userName={localStorage.getItem('username')}
         userSecret={localStorage.getItem('password')}
+        onDeleteChat={(chat) => console.log(chat)}
         renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       />
     </div>
