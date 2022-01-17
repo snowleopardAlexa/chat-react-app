@@ -1,19 +1,17 @@
-import MessageForm from "./MessageForm";
-
 const TheirMessage = ({ lastMessage, message }) => {
 
-    const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== MessageForm.sender.username;
+    const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username;
 
     return (
         <div className="message-row">
            {isFirstMessageByUser && (
                <div 
                  className="message-avatar"
-                 style={{backgroundImage: `url(${message?.sender?.avatar})`}}
+                 style={{backgroundImage: message.sender && `url(${message.sender.avatar})`}}
                />
            )}
            
-                {message?.attachements?.length > 0 
+                {message.attachements && message.attachements.length > 0 
                     ? (
                         <img 
                            src={message.attachements[0].file}
@@ -22,7 +20,7 @@ const TheirMessage = ({ lastMessage, message }) => {
                            style={{marginLeft: isFirstMessageByUser ? '4px' : '48px'}}
                         />
                     ) : (
-                        <div className="message" style={{ float: 'left', backgroundColor: '#016064'}}>
+                        <div className="message" style={{ float: 'left', backgroundColor: '#016064', marginLeft: isFirstMessageByUser ? '4px' : '48px'}}>
                           {message.text}
                         </div> 
                     )

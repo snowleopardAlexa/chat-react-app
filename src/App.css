@@ -196,12 +196,13 @@
     top: 1px;
     position: relative;
     transform: rotate(-90deg);
+    font-size: 20px;
   }
   
   .picture-icon {
-    top: 1px;
+    top: 2px;
     position: relative;
-    font-size: 14px;
+    font-size: 20px;
   }
   
   /* FORM STYLES */
