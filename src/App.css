@@ -289,3 +289,10 @@
     opacity: 1;
     right: 0;
   }
+
+  .error {
+    font-size: 1.4rem;
+    color: white;
+    margin: 20px 20px;
+    text-align: center;
+  }
